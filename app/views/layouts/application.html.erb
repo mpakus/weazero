@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="weatherApp">
 <head>
-  <title>Weazero</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <title>Weazero: Boston & New Yourk</title>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript">
+    window.token = "<%= Settings.token %>";
+  </script>
 </head>
 <body>
 
-<%= yield %>
+<div id="wrap" ui-view autoscroll="false"></div>
+
+<%= javascript_include_tag 'application' %>
 
 </body>
 </html>

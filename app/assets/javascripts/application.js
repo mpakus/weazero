@@ -12,5 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+//= require bootstrap-sprockets
+//= require angular/angular
+//= require angular-ui-router/release/angular-ui-router
+//= require angular-rails-templates
+//= require weather/app
+//= require_tree ../templates
+//= require_tree ./weather/controllers
+//= require_tree ./weather/services
+

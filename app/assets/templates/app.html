@@ -1,0 +1,13 @@
+<div class="container">
+  <div ng-include="'header.html'"></div>
+
+  <div ui-view-container>
+    <section ui-view autoscroll="false"></section>
+  </div>
+
+  <footer class="footer">
+    <p class="text-right">
+      <a ui-sref="app.weather({cityName: 'Boston'})" ui-sref-active="active">Boston</a> | <a ui-sref="app.weather({cityName: 'New York'})" ui-sref-active="active">New York</a>
+    </p>
+  </footer>
+</div>

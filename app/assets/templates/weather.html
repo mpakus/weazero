@@ -1,0 +1,10 @@
+<div class="jumbotron" ng-show="city">
+  <h1>{{city.name}}</h1>
+  <p></p>
+  <p class="lead text-center">
+    <div class="btn-group" role="group">
+      <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-cloud"></span> Current temperature: {{city.temp.current}} °C</button>
+      <button type="button" class="btn btn-success">Current wind speed: {{city.wind.speed}} mph <span class="glyphicon glyphicon-flag"></span></button>
+    </div>
+  </p>
+</div>

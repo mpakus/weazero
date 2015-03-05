@@ -1,7 +1,7 @@
 # weazero
-weather parser (Rails, AngularJS, RethinkDB)
+weather parser (Rails, AngularJS, MongoDB)
 
-# ￼CX Development - Test Job Specifications
+# CX Development - Test Job Specifications
 ## Project goals
 This is a paid test job with the specific goal of putting together a team of developers for a medium term project - 4–6 months. The main project will be focusing on building a customer support application. However, the current project is a test job that is small enough while being meant to test your current knowledge of the stack we will be using.
 The allotted time for this test job is 8 hours. You will end work at the 8 hour mark or sooner, if work is completed before this 8 hour mark. Finishing work before alloted time will be considered towards your proficiency level and increase your chances of working on this project.
@@ -22,4 +22,8 @@ Actual application interface is provided as a graphical mockup in the form of a 
 Requirements
 
 All code will be pushed to a git repository
-A minimum of 2 integration tests should be written (TDD) All coding will take place while running the oDesk app￼￼￼￼￼￼￼￼￼￼
+A minimum of 2 integration tests should be written (TDD)
+
+![in motion](https://api.monosnap.com/rpc/file/download?id=IpjSdEhQMUDHGeQCtEftexjJDKY5oN)
+
+![static](https://monosnap.com/file/poV4BeWWmJuX5ut7bzQJjBxe0eLEAh.png)

@@ -1,0 +1,12 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body{
+  padding-top: 80px;
+}
+
+footer{
+  a.active{
+    color: #4DAE4A;
+  }
+}

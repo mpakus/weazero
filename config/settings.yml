@@ -1,0 +1,6 @@
+openweather:
+  url: http://api.openweathermap.org/data/2.5/group?id=%s&units=metric
+  ids:
+    - 4930956
+    - 5128581
+token: ac11389b16c117fe08765b9daeef9fd5363beec11ccd620ff2a3c4324
