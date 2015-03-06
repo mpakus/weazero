@@ -926,3 +926,256 @@ Processing by Api::V1::WeatherController#show as JSON
   Parameters: {"token"=>"ac11389b16c117fe08765b9daeef9fd5363beec11ccd620ff2a3c4324", "id"=>"New York"}
   MOPED: 127.0.0.1:27017 QUERY        database=weazero_development collection=weathers selector={"$query"=>{"name"=>"New York"}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.8310ms
 Completed 200 OK in 4ms (Views: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-06 22:22:27 +0700
+Processing by WeatherController#index as HTML
+  Rendered weather/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 532ms (Views: 530.9ms)
+
+
+Started GET "/api/v1/weather/Boston?token=ac11389b16c117fe08765b9daeef9fd5363beec11ccd620ff2a3c4324" for 127.0.0.1 at 2015-03-06 22:22:28 +0700
+Processing by Api::V1::WeatherController#show as JSON
+  Parameters: {"token"=>"ac11389b16c117fe08765b9daeef9fd5363beec11ccd620ff2a3c4324", "id"=>"Boston"}
+Connection issue with rethinkdb://localhost/weazero_development - Connection refused - connect(2) for "localhost" port 28015, retrying...
+[1;32m[1009.3ms] r.table("weathers").order_by({"index" => r.asc(:id)}).filter {|var_1| var_1.bracket(:name).eq("Boston")}.limit(1)[0;39m -- [0;31mErrno::ECONNREFUSED Connection refused - connect(2) for "localhost" port 28015[0m
+Completed 500 Internal Server Error in 1057ms
+
+Errno::ECONNREFUSED - Connection refused - connect(2) for "localhost" port 28015:
+  rethinkdb (1.16.0.1) lib/net.rb:287:in `connect'
+  rethinkdb (1.16.0.1) lib/net.rb:143:in `initialize'
+  nobrainer (0.21.0) lib/no_brainer/connection.rb:30:in `raw'
+  nobrainer (0.21.0) lib/no_brainer/query_runner/driver.rb:3:in `call'
+  nobrainer (0.21.0) lib/no_brainer/query_runner/reconnect.rb:3:in `call'
+  nobrainer (0.21.0) lib/no_brainer/query_runner/connection_lock.rb:8:in `block in call'
+  nobrainer (0.21.0) lib/no_brainer/query_runner/connection_lock.rb:8:in `call'
+  nobrainer (0.21.0) lib/no_brainer/query_runner/logger.rb:4:in `call'
+  nobrainer (0.21.0) lib/no_brainer/query_runner/table_on_demand.rb:3:in `call'
+  nobrainer (0.21.0) lib/no_brainer/query_runner/database_on_demand.rb:3:in `call'
+  nobrainer (0.21.0) lib/no_brainer/query_runner/missing_index.rb:3:in `call'
+  nobrainer (0.21.0) lib/no_brainer/query_runner/write_error.rb:4:in `call'
+  nobrainer (0.21.0) lib/no_brainer/query_runner/run_options.rb:33:in `call'
+  middleware (0.1.0) lib/middleware/runner.rb:31:in `call'
+  middleware (0.1.0) lib/middleware/builder.rb:102:in `call'
+  nobrainer (0.21.0) lib/no_brainer/query_runner.rb:24:in `run'
+  nobrainer (0.21.0) lib/nobrainer.rb:28:in `run'
+  nobrainer (0.21.0) lib/no_brainer/criteria/core.rb:37:in `run'
+  nobrainer (0.21.0) lib/no_brainer/criteria/first.rb:29:in `get_one'
+  nobrainer (0.21.0) lib/no_brainer/criteria/eager_load.rb:43:in `get_one'
+  nobrainer (0.21.0) lib/no_brainer/criteria/first.rb:5:in `first'
+  nobrainer (0.21.0) lib/no_brainer/criteria/cache.rb:64:in `block (2 levels) in use_cache_for'
+  app/controllers/api/v1/weather_controller.rb:3:in `show'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  meta_request (0.3.4) lib/meta_request/middlewares/app_request_handler.rb:13:in `call'
+  meta_request (0.3.4) lib/meta_request/middlewares/meta_request_handler.rb:13:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  rack-contrib (1.2.0) lib/rack/contrib/response_headers.rb:17:in `call'
+  meta_request (0.3.4) lib/meta_request/middlewares/headers.rb:16:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.0) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/mpak/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/mpak/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/mpak/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+[1;33m[   2.5ms] r.db_create("weazero_development")[0m
+[1;33m[1228.9ms] r.table_create("weathers", {"primary_key" => :id})[0m
+[1;32m[   3.1ms] r.table("weathers").get_all(4930956, {"index" => :opnw_id}).order_by( r.asc(:id)).limit(1)[0;39m -- [0;31mRethinkDB::RqlRuntimeError Index `opnw_id` was not found on table `weazero_development.weathers`.[0m
+[1;33m[   5.7ms] r.table("weathers").index_status[0m
+[1;33m[   1.0ms] r.table("weathers").index_create(:opnw_id) {|var_1| var_1.bracket(:opnw_id)}[0;39m -- [0;31mRethinkDB::RqlDriverError MALFORMED PROTOBUF (Illegal Term type 170).[0m
+[1;33m[   7.0ms] r.table("weathers").index_status[0m
+[1;33m[   2.2ms] r.table("weathers").index_create(:opnw_id) {|var_1| var_1.bracket(:opnw_id)}[0;39m -- [0;31mRethinkDB::RqlDriverError MALFORMED PROTOBUF (Illegal Term type 170).[0m
+[1;33m[   2.3ms] r.table("weathers").index_status[0m
+[1;33m[   2.9ms] r.table("weathers").index_create(:opnw_id) {|var_1| var_1.bracket(:opnw_id)}[0;39m -- [0;31mRethinkDB::RqlDriverError MALFORMED PROTOBUF (Illegal Term type 170).[0m
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-06 22:32:22 +0700
+Processing by WeatherController#index as HTML
+  Rendered weather/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 195ms (Views: 193.6ms)
+
+
+Started GET "/api/v1/weather/Boston?token=ac11389b16c117fe08765b9daeef9fd5363beec11ccd620ff2a3c4324" for 127.0.0.1 at 2015-03-06 22:32:23 +0700
+Processing by Api::V1::WeatherController#show as JSON
+  Parameters: {"token"=>"ac11389b16c117fe08765b9daeef9fd5363beec11ccd620ff2a3c4324", "id"=>"Boston"}
+[1;32m[   4.1ms] r.table("weathers").order_by({"index" => r.asc(:id)}).filter {|var_2| var_2.bracket(:name).eq("Boston")}.limit(1)[0;39m -- [0;31mRethinkDB::RqlDriverError MALFORMED PROTOBUF (Illegal Term type 170).[0m
+Completed 500 Internal Server Error in 6ms
+
+RethinkDB::RqlDriverError - MALFORMED PROTOBUF (Illegal Term type 170).
+Backtrace:
+r.table("weathers").order_by({"index" => r.asc(:id)}).filter {|var_2|
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  var_2.bracket(:name).eq("Boston")
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+}.limit(1)
+^^^^^^^^^^:
+  rethinkdb (1.16.0.1) lib/shim.rb:73:in `rescue in response_to_native'
+  rethinkdb (1.16.0.1) lib/shim.rb:60:in `response_to_native'
+  rethinkdb (1.16.0.1) lib/net.rb:194:in `run'
+  rethinkdb (1.16.0.1) lib/net.rb:42:in `run'
+  nobrainer (0.21.0) lib/no_brainer/query_runner/driver.rb:3:in `call'
+  nobrainer (0.21.0) lib/no_brainer/query_runner/reconnect.rb:3:in `call'
+  nobrainer (0.21.0) lib/no_brainer/query_runner/connection_lock.rb:8:in `block in call'
+  nobrainer (0.21.0) lib/no_brainer/query_runner/connection_lock.rb:8:in `call'
+  nobrainer (0.21.0) lib/no_brainer/query_runner/logger.rb:4:in `call'
+  nobrainer (0.21.0) lib/no_brainer/query_runner/table_on_demand.rb:3:in `call'
+  nobrainer (0.21.0) lib/no_brainer/query_runner/database_on_demand.rb:3:in `call'
+  nobrainer (0.21.0) lib/no_brainer/query_runner/missing_index.rb:3:in `call'
+  nobrainer (0.21.0) lib/no_brainer/query_runner/write_error.rb:4:in `call'
+  nobrainer (0.21.0) lib/no_brainer/query_runner/run_options.rb:33:in `call'
+  middleware (0.1.0) lib/middleware/runner.rb:31:in `call'
+  middleware (0.1.0) lib/middleware/builder.rb:102:in `call'
+  nobrainer (0.21.0) lib/no_brainer/query_runner.rb:24:in `run'
+  nobrainer (0.21.0) lib/nobrainer.rb:28:in `run'
+  nobrainer (0.21.0) lib/no_brainer/criteria/core.rb:37:in `run'
+  nobrainer (0.21.0) lib/no_brainer/criteria/first.rb:29:in `get_one'
+  nobrainer (0.21.0) lib/no_brainer/criteria/eager_load.rb:43:in `get_one'
+  nobrainer (0.21.0) lib/no_brainer/criteria/first.rb:5:in `first'
+  nobrainer (0.21.0) lib/no_brainer/criteria/cache.rb:64:in `block (2 levels) in use_cache_for'
+  app/controllers/api/v1/weather_controller.rb:3:in `show'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  meta_request (0.3.4) lib/meta_request/middlewares/app_request_handler.rb:13:in `call'
+  meta_request (0.3.4) lib/meta_request/middlewares/meta_request_handler.rb:13:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  rack-contrib (1.2.0) lib/rack/contrib/response_headers.rb:17:in `call'
+  meta_request (0.3.4) lib/meta_request/middlewares/headers.rb:16:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.0) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/mpak/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/mpak/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/mpak/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+[1;32m[   6.0ms] r.table("weathers").get_all(4930956, {"index" => :opnw_id}).order_by( r.asc(:id)).limit(1)[0;39m -- [0;31mRethinkDB::RqlRuntimeError Index `opnw_id` was not found on table `weazero_development.weathers`.[0m

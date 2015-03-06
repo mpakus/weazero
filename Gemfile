@@ -31,7 +31,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rest-client'
 gem 'rails_config'
 gem 'bootstrap-sass', '~> 3.3'
-gem "mongoid", "~> 4.0.0"
+# gem "mongoid", "~> 4.0.0"
+gem 'nobrainer'
 gem 'bower-rails', '~> 0.9.2'
 gem 'angular-rails-templates'
 gem 'angular_rails_csrf'
